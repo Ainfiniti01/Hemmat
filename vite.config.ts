@@ -93,6 +93,9 @@ export default defineConfig({
 
   build: {
     outDir: 'dist',
+     rollupOptions: {
+      input: path.resolve(__dirname, 'index.html'), // ensures index.html is entry
+    },
   },
 
   server: {
