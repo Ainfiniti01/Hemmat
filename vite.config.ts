@@ -92,7 +92,7 @@ export default defineConfig({
   clearScreen: false,
 
   build: {
-    outDir: 'dist',
+    outDir: 'build',
      rollupOptions: {
       input: path.resolve(__dirname, 'index.html'), // ensures index.html is entry
     },
