@@ -5,8 +5,10 @@
 	"scripts": {
 		"dev": "react-router dev",
 		"typecheck": "react-router typegen && tsc --noEmit",
-		"build": "npx vite build"
-	},
+    "build": "npx vite build",
+    "predeploy:gh-pages": "VITE_APP_BASE_PATH=/Hemmat/ npm run build",
+    "deploy:gh-pages": "gh-pages -d build"
+  },
 	"dependencies": {
 		"@auth/core": "^0.37.2",
 		"@babel/generator": "^7.27.1",
