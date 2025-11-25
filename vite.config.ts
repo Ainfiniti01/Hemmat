@@ -14,6 +14,7 @@ import { restart } from './plugins/restart';
 import { restartEnvFileChange } from './plugins/restartEnvFileChange';
 
 export default defineConfig({
+  base: '/Hemmat/', // Set the base URL for GitHub Pages deployment
   root: '.', // Explicitly set the root to the current directory
 
   // Keep them available via import.meta.env.NEXT_PUBLIC_*
