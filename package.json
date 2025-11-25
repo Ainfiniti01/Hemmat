@@ -5,9 +5,7 @@
 	"scripts": {
 		"dev": "react-router dev",
 		"typecheck": "react-router typegen && tsc --noEmit",
-    "build": "npx vite build",
-    "predeploy:gh-pages": "VITE_APP_BASE_PATH=/Hemmat/ npm run build",
-    "deploy:gh-pages": "gh-pages -d build"
+    "build": "npx vite build"
   },
 	"dependencies": {
 		"@auth/core": "^0.37.2",
@@ -87,7 +85,6 @@
 		"babel-plugin-react-require": "^4.0.3",
 		"dotenv": "^16.6.1",
 		"fast-glob": "^3.3.3",
-		"gh-pages": "^6.3.0",
 		"jsdom": "^26.1.0",
 		"micromatch": "^4.0.8",
 		"postcss": "^8.5.3",
