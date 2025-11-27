@@ -143,6 +143,15 @@ export default function AdminDashboard() {
           </div>
         )}
 
+        {/* Disclaimer for Static Site */}
+        <div className="mb-8 p-4 bg-yellow-100 dark:bg-yellow-900 border border-yellow-200 dark:border-yellow-700 text-yellow-800 dark:text-yellow-200 rounded-lg">
+          <p className="font-semibold mb-2">Notice:</p>
+          <p className="text-sm">
+            This Admin Dashboard is for UI/UX demonstration purposes only.
+            Backend functionality for managing products, categories, and reviews is disabled in this static version.
+          </p>
+        </div>
+
         {/* Welcome Section */}
         <div className="mb-8">
           <h2
@@ -152,7 +161,7 @@ export default function AdminDashboard() {
                 'Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
             }}
           >
-            Welcome to Heemat's Collection Admin
+            Welcome to Heemat's Collection Admin (Demo)
           </h2>
           <p className="text-[#7B7B7B] dark:text-[#A0A0A0]">
             Manage your wig and hair stylish store from this central dashboard
