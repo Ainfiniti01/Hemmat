@@ -1,17 +1,6 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import React from 'react';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import { CartProvider } from '../context/CartContext';
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60 * 5, // 5 minutes
-      cacheTime: 1000 * 60 * 30, // 30 minutes
-      retry: 1,
-      refetchOnWindowFocus: false,
-    },
-  },
-});
 
 export const metadata = {
   title: "Heemat's Collection - Trendy & Affordable Fashion Store",
@@ -56,9 +45,7 @@ export default function RootLayout({ children }) {
       <body className="antialiased">
         <div className="min-h-screen bg-white dark:bg-[#121212] text-black dark:text-white">
           <CartProvider>
-            <QueryClientProvider client={queryClient}>
-              {children}
-            </QueryClientProvider>
+            {children}
           </CartProvider>
         </div>
         <ScrollToTopButton />

@@ -23,16 +23,17 @@ import './global.css';
 
 import fetch from '@/__create/fetch';
 // @ts-ignore
-import { SessionProvider } from '@auth/create/react';
+// @ts-ignore
+// import { SessionProvider } from '@auth/create/react'; // Removed for static site
 import { useNavigate } from 'react-router';
 import { serializeError } from 'serialize-error';
 import { Toaster } from 'sonner';
 // @ts-ignore
 import { LoadFonts } from 'virtual:load-fonts.jsx';
-import { HotReloadIndicator } from '../__create/HotReload';
-import { useSandboxStore } from '../__create/hmr-sandbox-store';
+// import { HotReloadIndicator } from '../__create/HotReload'; // Removed for static site
+// import { useSandboxStore } from '../__create/hmr-sandbox-store'; // Removed for static site
 import type { Route } from './+types/root';
-import { useDevServerHeartbeat } from '../__create/useDevServerHeartbeat';
+// import { useDevServerHeartbeat } from '../__create/useDevServerHeartbeat'; // Removed for static site
 
 export const links = () => [];
 
@@ -284,38 +285,6 @@ const useHandshakeParent = () => {
   }, [isHmrConnected]);
 };
 
-const useCodeGen = () => {
-  const { startCodeGen, setCodeGenGenerating, completeCodeGen, errorCodeGen, stopCodeGen } =
-    useSandboxStore();
-
-  useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
-      const { type } = event.data;
-
-      switch (type) {
-        case 'sandbox:web:codegen:started':
-          startCodeGen();
-          break;
-        case 'sandbox:web:codegen:generating':
-          setCodeGenGenerating();
-          break;
-        case 'sandbox:web:codegen:complete':
-          completeCodeGen();
-          break;
-        case 'sandbox:web:codegen:error':
-          errorCodeGen();
-          break;
-        case 'sandbox:web:codegen:stopped':
-          stopCodeGen();
-          break;
-      }
-    };
-    window.addEventListener('message', handleMessage);
-    return () => {
-      window.removeEventListener('message', handleMessage);
-    };
-  }, [startCodeGen, setCodeGenGenerating, completeCodeGen, errorCodeGen, stopCodeGen]);
-};
 
 const useRefresh = () => {
   useEffect(() => {
@@ -335,10 +304,9 @@ const useRefresh = () => {
 };
 
 export function Layout({ children }: { children: ReactNode }) {
-  useHandshakeParent();
-  useCodeGen();
-  useRefresh();
-  useDevServerHeartbeat();
+  // useHandshakeParent(); // Removed for static site
+  // useRefresh(); // Removed for static site
+  // useDevServerHeartbeat(); // Removed for static site
   const navigate = useNavigate();
   const location = useLocation();
   const pathname = location?.pathname;
@@ -379,7 +347,7 @@ export function Layout({ children }: { children: ReactNode }) {
       </head>
       <body>
         <ClientOnly loader={() => children} />
-        <HotReloadIndicator />
+        {/* <HotReloadIndicator /> */}
         <Toaster position="bottom-right" />
         <ScrollRestoration />
         <Scripts />
@@ -391,8 +359,8 @@ export function Layout({ children }: { children: ReactNode }) {
 
 export default function App() {
   return (
-    <SessionProvider>
+    // <SessionProvider> // Removed for static site
       <Outlet />
-    </SessionProvider>
+    // </SessionProvider> // Removed for static site
   );
 }
